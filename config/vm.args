@@ -1,0 +1,6 @@
+-sname pinboard_queue
+
+-setcookie pinboard_queue_cookie
+
++K true
++A30
