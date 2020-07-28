@@ -1,6 +1,6 @@
 ## pinboard\_queue
 
-An OTP application
+A Pinboard.in feed to Message Queue doer
 
 ### Build
 

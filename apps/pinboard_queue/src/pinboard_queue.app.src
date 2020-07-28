@@ -1,5 +1,5 @@
 {application, pinboard_queue,
- [{description, "An OTP application"},
+ [{description, "A Pinboard.in feed to Message Queue doer"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, {pinboard_queue_app, []}},
