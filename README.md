@@ -18,9 +18,9 @@ A Pinboard.in feed to Message Queue doer
 
 ```
 
-   /          \
-rss_sup    mq_sup
-   |           |
- worker      worker
+   /              \
+pinboard_sup    mq_sup
+   |              |
+ worker         worker
 
 ```
