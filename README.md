@@ -14,6 +14,7 @@ A Pinboard.in feed to Message Queue doer
 * Where to store idempotency?
 * Is it OK to send URLs out of order?
 * How should we rate limit? https://pinboard.in/api#limits
+* What HTTP client should we use?
 
 
 ```
