@@ -13,6 +13,9 @@ mypy = "^0.790"
 pylint = "^2.6.0"
 black = "^20.8b1"
 
+[tool.poetry.scripts]
+pinboard-queue = 'pinboard_queue:main'
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
