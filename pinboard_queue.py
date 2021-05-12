@@ -9,6 +9,9 @@ import pika  # type: ignore
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
+# pika is too verbose
+logging.getLogger("pika").setLevel(logging.ERROR)
+
 
 @click.command()
 @click.option("--amqp-url", required=True, show_envvar=True, help="URL to AMQP server")
