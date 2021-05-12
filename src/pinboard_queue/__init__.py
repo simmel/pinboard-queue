@@ -4,8 +4,9 @@ import logging
 import typing
 
 import click
+import pika  # type: ignore
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
 
 
@@ -16,7 +17,20 @@ log = logging.getLogger(__name__)
 )
 def main(*, amqp_url: str, pinboard_api_token: str):
     """A Pinboard.in feed to Message Queue doer"""
-    print(amqp_url)
+    connection = pika.BlockingConnection(pika.URLParameters(amqp_url))
+    channel = connection.channel()
+    channel.confirm_delivery()
+    channel.exchange_declare(exchange="pinboard", exchange_type="topic")
+    channel.basic_publish(
+        exchange="pinboard",
+        routing_key="pinboard.recent",
+        body="Hello World!",
+        properties=pika.BasicProperties(
+            delivery_mode=2,  # make message persistent
+        ),
+    )
+    print(" [x] Sent 'Hello World!'")
+    connection.close()
 
 
 main(auto_envvar_prefix="PINQUE")
