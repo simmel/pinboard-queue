@@ -204,7 +204,8 @@ def main(*, amqp_url: str, pinboard_api_token: str):
     recent_post = boolify_post(recent_post)
     pinboard_post_schema = os.path.dirname(__file__) + "/pinboard_post.capnp"
     pinboard_post = capnp.load(pinboard_post_schema)
-    post = pinboard_post.PinboardPost.new_message(**recent_post).to_bytes()
+    post = pinboard_post.PinboardPost.new_message(**recent_post)
+    post_bytes = post.to_bytes()
     connection = pika.BlockingConnection(pika.URLParameters(amqp_url))
     channel = connection.channel()
     channel.confirm_delivery()
@@ -212,9 +213,10 @@ def main(*, amqp_url: str, pinboard_api_token: str):
     channel.basic_publish(
         exchange="pinboard",
         routing_key="pinboard.recent",
-        body=post,
+        body=post_bytes,
         properties=pika.BasicProperties(
             delivery_mode=2,  # make message persistent
+            message_id=post.meta,
         ),
     )
     log.info(
