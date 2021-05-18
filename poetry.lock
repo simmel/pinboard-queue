@@ -212,6 +212,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
+name = "pycapnp"
+version = "1.0.0"
+description = "A cython wrapping of the C++ Cap'n Proto library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pylint"
 version = "2.6.0"
 description = "python code static checker"
@@ -328,7 +336,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "ff5c3385690f96f166b8d615dbe63aa9d414742e5aa9a807dac1eee8f68218ec"
+content-hash = "4d24a03646917584d1909872db3f0974359dd8a89896a04dc71c2a2fcf12b26f"
 
 [metadata.files]
 appdirs = [
@@ -436,6 +444,21 @@ pluggy = [
 py = [
     {file = "py-1.9.0-py2.py3-none-any.whl", hash = "sha256:366389d1db726cd2fcfc79732e75410e5fe4d31db13692115529d34069a043c2"},
     {file = "py-1.9.0.tar.gz", hash = "sha256:9ca6883ce56b4e8da7e79ac18787889fa5206c79dcc67fb065376cd2fe03f342"},
+]
+pycapnp = [
+    {file = "pycapnp-1.0.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:e3c377fb3014e480ae10b6c8d0f84bdf3487516efe6ca7caf168ddea68c5cd7a"},
+    {file = "pycapnp-1.0.0-cp37-cp37m-manylinux2010_i686.whl", hash = "sha256:4a01246579646e06ce7b6f5c70c0465c0a457fb42c0ead06f410518509dd9325"},
+    {file = "pycapnp-1.0.0-cp37-cp37m-manylinux2010_x86_64.whl", hash = "sha256:b56933e65518ca204550d67a6d68742e05cce17264f04ff820a20872d76aee55"},
+    {file = "pycapnp-1.0.0-cp37-cp37m-win_amd64.whl", hash = "sha256:d3ebaf2796eeaa79e2f632d8d6509e7ea0e614513d133a4d1bc37fafdde5b7f6"},
+    {file = "pycapnp-1.0.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:37aaf0023939d00cd0554030b09caea194216df35831fd39677cf898954d1e57"},
+    {file = "pycapnp-1.0.0-cp38-cp38-manylinux2010_i686.whl", hash = "sha256:863a6e66c786b83bd4dce37680f3d006760ade25ce0d25d4ebf229c352b465c1"},
+    {file = "pycapnp-1.0.0-cp38-cp38-manylinux2010_x86_64.whl", hash = "sha256:d0fcbffb8326e05b4d41928312b967e1ddcee6cc600287e86118e7fde1de9f5c"},
+    {file = "pycapnp-1.0.0-cp38-cp38-win_amd64.whl", hash = "sha256:485e91799304095aa99ff5561ba1755d566f60e710f78307e32716ec0d1835e9"},
+    {file = "pycapnp-1.0.0-cp39-cp39-macosx_10_14_x86_64.whl", hash = "sha256:e2c7e8fb71add9ab392ef773bcfff95998ec1a65ad4cdefbdb3f09b202ac4e7a"},
+    {file = "pycapnp-1.0.0-cp39-cp39-manylinux2010_i686.whl", hash = "sha256:db4cf60c0fbdb0a63209280324f183dbe16a5ef9add4c3bf5fb34b0f10c3ec42"},
+    {file = "pycapnp-1.0.0-cp39-cp39-manylinux2010_x86_64.whl", hash = "sha256:78ec9536791f53a00b87dd93b0447e66bb1fbfe556130748e4743faca90a7028"},
+    {file = "pycapnp-1.0.0-cp39-cp39-win_amd64.whl", hash = "sha256:fc0c9ddb2099ef1c33bcebbea287f54e33cb52a701e59d7d12d54eeff36d0f96"},
+    {file = "pycapnp-1.0.0.tar.gz", hash = "sha256:9f6fcca349ebf2ec04ca7eacb076aea3e4fcdc010ac33c98b54f0a19d4e5d3e0"},
 ]
 pylint = [
     {file = "pylint-2.6.0-py3-none-any.whl", hash = "sha256:bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f"},

@@ -3,10 +3,12 @@ name = "pinboard-queue"
 version = "0.1.0"
 description = ""
 authors = ["Simon Lundström <github-commits@soy.se>"]
+include = ["pinboard_post.capnp"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 pika = "^1.2.0"
+pycapnp = "^1.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
