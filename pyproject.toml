@@ -3,6 +3,7 @@ name = "pinboard-queue"
 version = "0.1.0"
 description = ""
 authors = ["Simon Lundström <github-commits@soy.se>"]
+homepage = "https://github.com/simmel/pinboard-queue"
 include = ["pinboard_post.capnp"]
 
 [tool.poetry.dependencies]
