@@ -3,3 +3,9 @@ __pycache__/
 
 # Distribution / packaging
 dist/
+
+# Don't store secrets
+.env
+
+# asdf et.al.
+.tool-versions
