@@ -9,3 +9,6 @@ dist/
 
 # asdf et.al.
 .tool-versions
+
+# Unit test / coverage reports
+.tox/
