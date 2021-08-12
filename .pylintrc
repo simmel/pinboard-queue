@@ -1,2 +1,7 @@
-ignore=missing-module-docstring,missing-function-docstring
+[MASTER]
+disable=
+    missing-docstring,
+    W,
+    R,
 
+output-format = parseable
