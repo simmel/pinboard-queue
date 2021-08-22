@@ -32,11 +32,15 @@ legacy_tox_ini = """
 [tox]
 isolated_build = True
 whitelist_externals = poetry
-envlist = py
+envlist = py,typing
 
 [testenv]
 commands =
     poetry install
+
+[testenv:typing]
+commands =
+    python3 -m mypy .
 """
 
 [build-system]
