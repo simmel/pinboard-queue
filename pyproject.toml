@@ -32,7 +32,7 @@ legacy_tox_ini = """
 [tox]
 isolated_build = True
 whitelist_externals = poetry
-envlist = py,typing,format
+envlist = py,typing,format,sort
 
 [testenv]
 commands_pre =
@@ -45,6 +45,10 @@ commands =
 [testenv:format]
 commands =
     python3 -m black --check --diff .
+
+[testenv:sort]
+commands =
+    python3 -m isort --check --diff .
 """
 
 [build-system]
