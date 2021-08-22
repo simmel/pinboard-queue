@@ -40,7 +40,7 @@ commands =
 
 [testenv:typing]
 commands =
-    python3 -m mypy .
+    poetry run python3 -m mypy .
 """
 
 [build-system]
