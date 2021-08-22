@@ -35,7 +35,7 @@ whitelist_externals = poetry
 envlist = py,typing
 
 [testenv]
-commands =
+commands_pre =
     poetry install
 
 [testenv:typing]
