@@ -26,6 +26,9 @@ types-requests = "^2.25.6"
 [tool.poetry.scripts]
 pinboard-queue = 'pinboard_queue:main'
 
+[tool.mypy]
+strict = true
+
 [tool.pylint]
     [tool.pylint.master]
     disable= [
