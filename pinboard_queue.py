@@ -172,4 +172,4 @@ def main(*, amqp_url: str, pinboard_api_token: str):
     connection.close()
 
 
-main(auto_envvar_prefix="PINQUE")
+main(auto_envvar_prefix="PINQUE")  # pylint: disable=unexpected-keyword-arg,missing-kwoa
