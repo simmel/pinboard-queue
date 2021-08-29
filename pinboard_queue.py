@@ -112,11 +112,11 @@ def main(*, amqp_url: str, pinboard_api_token: str):
             log.info("Sleeping for %ss", sleep_for)
             connection.sleep(sleep_for)
 
-        r = session.get(
+        response = session.get(
             "https://api.pinboard.in/v1/posts/update",
         )
-        response = r.json()
-        posts_update = response["update_time"]
+        response_posts_update = response.json()
+        posts_update = response_posts_update["update_time"]
         if posts_update <= update_time:
             log.info(
                 "No new updates, returning",
