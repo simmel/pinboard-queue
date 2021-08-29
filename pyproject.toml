@@ -29,6 +29,13 @@ pinboard-queue = 'pinboard_queue:main'
 [tool.mypy]
 strict = true
 
+[[tool.mypy.overrides]]
+module = [
+    'tests.*',
+    'noxfile',
+]
+ignore_errors = true
+
 [tool.pylint]
     [tool.pylint.master]
     disable= [
