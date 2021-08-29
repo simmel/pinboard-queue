@@ -1,7 +1,0 @@
-[MASTER]
-disable=
-    missing-docstring,
-    W,
-    R,
-
-output-format = parseable

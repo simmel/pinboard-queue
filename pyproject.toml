@@ -51,6 +51,17 @@ commands =
     python3 -m isort --check --diff .
 """
 
+[tool.pylint]
+    [tool.pylint.master]
+    disable= [
+        'missing-docstring',
+        'W',
+        'R',
+        ]
+
+    output-format = 'parseable'
+    ignored-modules='capnp'
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
