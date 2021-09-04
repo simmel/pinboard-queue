@@ -32,7 +32,7 @@ __version__ = __metadata__["Version"]
 BEGINNING_OF_TIME = "1970-01-01T00:00:00Z"
 
 
-def boolify_post(post: Dict):
+def boolify_post(post: Dict[str, str]) -> Dict[str, bool]:
     for k in ["shared", "toread"]:
         post[k] = True if post[k].lower() == "on" else False
     return post
