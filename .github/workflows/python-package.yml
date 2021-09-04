@@ -29,7 +29,7 @@ jobs:
           images: ${{ secrets.DOCKER_USERNAME }}/pinboard-queue
           tags: |
             type=raw,value=latest
-      - run: cat ${{ steps.meta.outputs.bake-file }}
+            type=semver,pattern={{version}}
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
