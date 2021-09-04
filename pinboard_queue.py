@@ -33,9 +33,10 @@ BEGINNING_OF_TIME = "1970-01-01T00:00:00Z"
 
 
 def boolify_post(post: Dict[str, str]) -> Dict[str, bool]:
+    return_post = {}
     for k in ["shared", "toread"]:
-        post[k] = True if post[k].lower() == "on" else False
-    return post
+        return_post[k] = True if post[k].lower() == "on" else False
+    return return_post
 
 
 def create_session(auth_token: str) -> requests.sessions.Session:
