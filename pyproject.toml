@@ -27,7 +27,7 @@ types-requests = "^2.25.6"
 pinboard-queue = 'pinboard_queue:main'
 
 [tool.mypy]
-# strict = true
+strict = true
 
 [[tool.mypy.overrides]]
 module = [
