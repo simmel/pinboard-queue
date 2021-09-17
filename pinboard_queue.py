@@ -86,7 +86,7 @@ def create_session(auth_token: str) -> requests.sessions.Session:
 @click.option(
     "--pinboard-api-token", required=True, show_envvar=True, help="Pinboard API token"
 )
-def main(*, amqp_url: str, pinboard_api_token: str):
+def main(*, amqp_url: str, pinboard_api_token: str) -> None:
     """A Pinboard.in feed to Message Queue doer"""
     update_time = BEGINNING_OF_TIME
     sleep_for = 60
