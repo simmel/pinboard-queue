@@ -27,6 +27,7 @@ pinboard-queue = 'pinboard_queue:main'
 
 [tool.mypy]
 strict = true
+show_error_codes = true
 
 [[tool.mypy.overrides]]
 module = [
