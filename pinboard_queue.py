@@ -135,7 +135,9 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
         )
         recent_posts = response.json()
 
-        for recent_post in sorted(recent_posts["posts"], key=lambda p: p["time"]):
+        for recent_post in sorted(
+            recent_posts["posts"], key=lambda p: p["time"]  # type: ignore[no-any-return]
+        ):
             log.info("Looping over %r", recent_post["meta"])
             if recent_post["time"] > update_time:
                 recent_post = boolify_post(recent_post)
