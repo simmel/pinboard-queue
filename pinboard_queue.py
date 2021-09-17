@@ -49,19 +49,19 @@ def create_session(auth_token: str) -> requests.sessions.Session:
     class TimeoutHTTPAdapter(requests.adapters.HTTPAdapter):
         DEFAULT_TIMEOUT = 2
 
-        def __init__(self, *args, **kwargs):
+        def __init__(self, *args, **kwargs):  # type: ignore[no-untyped-def]
             self.timeout = self.DEFAULT_TIMEOUT
             if "timeout" in kwargs:
                 self.timeout = kwargs["timeout"]
                 del kwargs["timeout"]
             super().__init__(*args, **kwargs)
 
-        def send(self, request, **kwargs):
+        def send(self, request, **kwargs):  # type: ignore[no-untyped-def]
             if not kwargs.get("timeout"):
                 kwargs["timeout"] = self.timeout
             return super().send(request, **kwargs)
 
-    adapter = TimeoutHTTPAdapter(timeout=2)
+    adapter = TimeoutHTTPAdapter(timeout=2)  # type: ignore[no-untyped-call]
     session.mount("https://", adapter)
     session.mount("http://", adapter)
 
