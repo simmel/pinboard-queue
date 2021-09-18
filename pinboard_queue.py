@@ -72,7 +72,7 @@ def create_session(auth_token: str) -> requests.sessions.Session:
     session.params = params
     headers = {
         "User-Agent": "{}/{} (+{})".format(
-            __name__,
+            __metadata__["Name"],
             __version__,
             __metadata__["Home-page"],
         )
