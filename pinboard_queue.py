@@ -161,7 +161,6 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
                 )
                 log.debug("Message sent", extra={"post": post})
                 update_time = post.time
-                connection.sleep(5)
         # posts_update is when posts changed. update_time is now the time the
         # latest post was added. If we delete something e.g. posts_update is
         # newer than update_time.
