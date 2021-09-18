@@ -21,7 +21,7 @@ __metadata__ = {
     i[0]: i[1]
     for i in [
         a.split(": ")
-        for a in pkg_resources.get_distribution(__name__)
+        for a in pkg_resources.get_distribution(__spec__.name)  # type: ignore[name-defined]
         .get_metadata("METADATA")
         .rstrip()
         .split("\n")
