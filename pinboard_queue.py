@@ -11,12 +11,6 @@ import pkg_resources
 import requests
 import requests.adapters
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
-
-# pika is too verbose
-logging.getLogger("pika").setLevel(logging.INFO)
-
 __metadata__ = {
     i[0]: i[1]
     for i in [
@@ -28,6 +22,12 @@ __metadata__ = {
     ]
 }
 __version__ = __metadata__["Version"]
+
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__metadata__["Name"])
+
+# pika is too verbose
+logging.getLogger("pika").setLevel(logging.INFO)
 
 BEGINNING_OF_TIME = "1970-01-01T00:00:00Z"
 
