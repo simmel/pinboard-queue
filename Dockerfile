@@ -10,7 +10,7 @@ ENV PYTHONPATH=/venv/lib/python${PYTHON_VERSION}/site-packages
 COPY poetry.lock pyproject.toml ./
 RUN touch pinboard_queue.py
 RUN --mount=type=cache,target=/root/.cache pip install .
-COPY *.py ./
+COPY *.py *.capnp ./
 RUN --mount=type=cache,target=/root/.cache pip install .
 
 # venv won't overwrite symlinks when they point to non-existing files...
