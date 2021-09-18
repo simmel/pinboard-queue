@@ -130,8 +130,7 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
 
         response = session.get(
             "https://api.pinboard.in/v1/posts/recent",
-            # params={"count": 100},
-            params={"count": 2},
+            params={"count": 100},
         )
         recent_posts = response.json()
 
