@@ -89,7 +89,7 @@ def create_session(auth_token: str) -> requests.sessions.Session:
 def main(*, amqp_url: str, pinboard_api_token: str) -> None:
     """A Pinboard.in feed to Message Queue doer"""
     update_time = BEGINNING_OF_TIME
-    sleep_for = 60
+    sleep_for = 300
 
     pinboard_post_schema = os.path.dirname(__file__) + "/pinboard_post.capnp"
     pinboard_post = capnp.load(pinboard_post_schema)
