@@ -2,9 +2,9 @@
 
 A Pinboard.in feed to Message Queue doer
 
-### Build
+### Installation
 
-    $ rebar3 compile
+    $ pip install .
 
 
 ### Design
@@ -14,14 +14,3 @@ A Pinboard.in feed to Message Queue doer
 * Where to store idempotency?
 * Is it OK to send URLs out of order?
 * How should we rate limit? https://pinboard.in/api#limits
-* What HTTP client should we use?
-
-
-```
-
-   /              \
-pinboard_sup    mq_sup
-   |              |
- worker         worker
-
-```
