@@ -41,6 +41,7 @@ ignore_errors = true
     disable= [
         'missing-docstring',
         'consider-using-f-string',
+        'invalid-name',
         'W',
         'R',
         ]
