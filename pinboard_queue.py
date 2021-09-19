@@ -2,7 +2,7 @@ __version__ = "0.1.0"
 
 import logging
 import os
-from typing import Dict
+from typing import Dict, Union
 
 import capnp  # type: ignore
 import click
@@ -32,8 +32,8 @@ logging.getLogger("pika").setLevel(logging.INFO)
 BEGINNING_OF_TIME = "1970-01-01T00:00:00Z"
 
 
-def boolify_post(post: Dict[str, str]) -> Dict[str, bool]:
-    return_post = {}
+def boolify_post(post: Dict[str, str]) -> Dict[str, Union[bool, str]]:
+    return_post: Dict[str, Union[bool, str]] = {**post}
     for k in ["shared", "toread"]:
         return_post[k] = True if post[k].lower() == "on" else False
     return return_post
