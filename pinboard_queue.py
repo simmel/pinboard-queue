@@ -61,7 +61,7 @@ def create_session(auth_token: str) -> requests.sessions.Session:
                 kwargs["timeout"] = self.timeout
             return super().send(request, **kwargs)
 
-    adapter = TimeoutHTTPAdapter(timeout=2)  # type: ignore[no-untyped-call]
+    adapter = TimeoutHTTPAdapter(timeout=5)  # type: ignore[no-untyped-call]
     session.mount("https://", adapter)
     session.mount("http://", adapter)
 
