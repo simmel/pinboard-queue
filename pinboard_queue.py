@@ -113,9 +113,14 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
             log.info("Sleeping for %ss", sleep_for)
             connection.sleep(sleep_for)
 
-        response = session.get(
-            "https://api.pinboard.in/v1/posts/update",
-        )
+        try:
+            response = session.get(
+                "https://api.pinboard.in/v1/posts/update",
+            )
+        except requests.exceptions.ReadTimeout as e:
+            log.exception(e)
+            continue
+
         response_posts_update = response.json()
         posts_update = response_posts_update["update_time"]
         if posts_update <= update_time:
@@ -128,10 +133,14 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
             )
             continue
 
-        response = session.get(
-            "https://api.pinboard.in/v1/posts/recent",
-            params={"count": 100},
-        )
+        try:
+            response = session.get(
+                "https://api.pinboard.in/v1/posts/recent",
+                params={"count": 100},
+            )
+        except requests.exceptions.ReadTimeout as e:
+            log.exception(e)
+            continue
         recent_posts = response.json()
 
         for recent_post in sorted(
