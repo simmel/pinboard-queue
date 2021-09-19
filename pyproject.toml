@@ -40,6 +40,7 @@ ignore_errors = true
     [tool.pylint.master]
     disable= [
         'missing-docstring',
+        'consider-using-f-string',
         'W',
         'R',
         ]
