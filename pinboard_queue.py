@@ -2,6 +2,8 @@ __version__ = "0.1.0"
 
 import logging
 import os
+import sys
+import io
 from typing import Dict, Union
 
 import capnp  # type: ignore
@@ -22,6 +24,9 @@ __metadata__ = {
     ]
 }
 __version__ = __metadata__["Version"]
+
+# Make stdout unbuffered https://stackoverflow.com/a/181654
+sys.stdout = io.TextIOWrapper(open(sys.stdout.fileno(), 'wb', 0), write_through=True)
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__metadata__["Name"])
