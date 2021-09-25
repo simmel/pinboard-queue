@@ -146,8 +146,9 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
         for recent_post in sorted(
             recent_posts["posts"], key=lambda p: p["time"]  # type: ignore[no-any-return]
         ):
-            log.info("Looping over %r", recent_post["meta"])
+            log.debug("Looping over %r", recent_post["meta"])
             if recent_post["time"] > update_time:
+                log.info("Found new post %r", recent_post["meta"])
                 recent_post = boolify_post(recent_post)
 
                 post = pinboard_post.PinboardPost.new_message(**recent_post)
