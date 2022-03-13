@@ -29,9 +29,6 @@ __metadata__ = {
 }
 __version__ = __metadata__["Version"]
 
-# Make stdout unbuffered https://stackoverflow.com/a/181654
-sys.stdout = io.TextIOWrapper(open(sys.stdout.fileno(), "wb", 0), write_through=True)
-
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__metadata__["Name"])
 
@@ -193,6 +190,11 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
 
 
 def cli() -> None:
+    # Make stdout unbuffered https://stackoverflow.com/a/181654
+    sys.stdout = io.TextIOWrapper(
+        open(sys.stdout.fileno(), "wb", 0), write_through=True
+    )
+
     main(  # pylint: disable=unexpected-keyword-arg,missing-kwoa
         auto_envvar_prefix="PINQUE"
     )
