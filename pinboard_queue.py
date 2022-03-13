@@ -20,6 +20,8 @@ import sanitize_url
 sanitize_url.infect()
 
 package_name = __spec__.name  # type: ignore
+# When we no longer support <3.8 this can be removed
+# mypy: no-warn-unused-ignores
 __metadata__ = importlib_metadata.metadata(package_name)  # type: ignore
 __version__ = __metadata__["Version"]
 
