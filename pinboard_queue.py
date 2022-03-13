@@ -1,4 +1,7 @@
-__version__ = "0.1.0"
+try:
+    import importlib.metadata as importlib_metadata
+except ModuleNotFoundError:
+    import importlib_metadata  # type: ignore
 
 import io
 import logging
@@ -9,7 +12,6 @@ from typing import Dict, Union
 import capnp  # type: ignore
 import click
 import pika  # type: ignore
-import pkg_resources
 import requests
 import requests.adapters
 
@@ -17,16 +19,8 @@ import sanitize_url
 
 sanitize_url.infect()
 
-__metadata__ = {
-    i[0]: i[1]
-    for i in [
-        a.split(": ")
-        for a in pkg_resources.get_distribution(__spec__.name)  # type: ignore[name-defined]
-        .get_metadata("METADATA")
-        .rstrip()
-        .split("\n")
-    ]
-}
+package_name = __spec__.name  # type: ignore
+__metadata__ = importlib_metadata.metadata(package_name)  # type: ignore
 __version__ = __metadata__["Version"]
 
 logging.basicConfig(level=logging.INFO)
