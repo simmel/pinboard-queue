@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pinboard-queue"
-version = "1.2.0"
+version = "1.2.1"
 description = ""
 authors = ["Simon Lundström <github-commits@soy.se>"]
 homepage = "https://github.com/simmel/pinboard-queue"
