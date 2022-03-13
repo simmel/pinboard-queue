@@ -23,7 +23,7 @@ types-pkg-resources = "^0.1.3"
 types-requests = "^2.25.6"
 
 [tool.poetry.scripts]
-pinboard-queue = 'pinboard_queue:main'
+pinboard-queue = 'pinboard_queue:cli'
 
 [tool.mypy]
 strict = true

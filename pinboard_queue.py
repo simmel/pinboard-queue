@@ -192,4 +192,11 @@ def main(*, amqp_url: str, pinboard_api_token: str) -> None:
     connection.close()
 
 
-main(auto_envvar_prefix="PINQUE")  # pylint: disable=unexpected-keyword-arg,missing-kwoa
+def cli() -> None:
+    main(  # pylint: disable=unexpected-keyword-arg,missing-kwoa
+        auto_envvar_prefix="PINQUE"
+    )
+
+
+if __name__ == "__main__":
+    cli()
