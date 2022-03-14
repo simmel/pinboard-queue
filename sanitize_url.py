@@ -23,3 +23,11 @@ def infect() -> None:
         url = sanitize_url(url)
         message = "Max retries exceeded with url: %s (Caused by %r)" % (url, reason)
         urllib3.exceptions.RequestError.__init__(instance, pool, url, message)
+
+    @wrapt.patch_function_wrapper(urllib3.connectionpool.log, "warning")
+    def connectionpool(wrapped, instance, args, kwargs):  # type: ignore
+        if len(args) == 4:
+            new_args = list(args)
+            new_args[3] = sanitize_url(args[3])
+            args = tuple(new_args)
+        wrapped(*args, **kwargs)
