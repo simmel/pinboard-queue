@@ -5,6 +5,10 @@ description = ""
 authors = ["Simon Lundström <github-commits@soy.se>"]
 homepage = "https://github.com/simmel/pinboard-queue"
 include = ["pinboard_post.capnp"]
+packages = [
+    { include = "pinboard_queue.py" },
+    { include = "sanitize_url.py" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
