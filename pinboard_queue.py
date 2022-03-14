@@ -14,6 +14,7 @@ import click
 import pika  # type: ignore
 import requests
 import requests.adapters
+import urllib3.util.retry  # type: ignore
 
 import sanitize_url
 
@@ -63,7 +64,14 @@ def create_session(auth_token: str) -> requests.sessions.Session:
                 kwargs["timeout"] = self.timeout
             return super().send(request, **kwargs)
 
-    adapter = TimeoutHTTPAdapter(timeout=10)  # type: ignore[no-untyped-call]
+    retries = 3
+    retry = urllib3.util.retry.Retry(
+        total=retries,
+        read=retries,
+        connect=retries,
+        backoff_factor=5,
+    )
+    adapter = TimeoutHTTPAdapter(timeout=10, max_retries=retry)  # type: ignore[no-untyped-call]
     session.mount("https://", adapter)
     session.mount("http://", adapter)
 
