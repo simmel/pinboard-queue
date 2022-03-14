@@ -8,7 +8,10 @@ ENV PATH=/venv/bin:$PATH
 ENV PYTHONPATH=/venv/lib/python${PYTHON_VERSION}/site-packages
 
 COPY poetry.lock pyproject.toml ./
-RUN touch pinboard_queue.py
+RUN touch \
+    pinboard_queue.py \
+    sanitize_url.py \
+    ;
 RUN --mount=type=cache,target=/root/.cache pip install .
 COPY *.py *.capnp ./
 RUN --mount=type=cache,target=/root/.cache pip install .
