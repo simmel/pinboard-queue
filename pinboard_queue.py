@@ -69,7 +69,7 @@ def create_session(auth_token: str) -> requests.sessions.Session:
         total=retries,
         read=retries,
         connect=retries,
-        backoff_factor=5,
+        backoff_factor=60,
     )
     adapter = TimeoutHTTPAdapter(timeout=10, max_retries=retry)  # type: ignore[no-untyped-call]
     session.mount("https://", adapter)
