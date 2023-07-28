@@ -1,5 +1,5 @@
-ARG PYTHON_VERSION=3.7
-FROM python:${PYTHON_VERSION}-slim-buster AS build
+ARG PYTHON_VERSION=3.9
+FROM python:${PYTHON_VERSION}-slim-bullseye AS build
 
 WORKDIR /usr/src
 
@@ -22,8 +22,7 @@ RUN --mount=type=cache,target=/root/.cache pip install .
 RUN rm -f /venv/bin/python*
 
 # Distroless don't currently have version tags
-FROM gcr.io/distroless/python3-debian10:debug@sha256:396827c703e8f43f6483d2e723592ea3bfaeafc5d327bcfca9cddaed74ead3cf
-ARG PYTHON_VERSION=3.7
+FROM gcr.io/distroless/python3-debian11:debug-nonroot@sha256:8b97e216ea5fd097457dcca1b5bca9dcdfc1f647162cc255d2f57d4130210a8b
 
 COPY --from=build /venv /venv
 ENV PATH=/venv/bin:$PATH
