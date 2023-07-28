@@ -24,7 +24,7 @@ pytest = "^7.0.1"
 mypy = "^0.900"
 pylint = "^2.6.0"
 black = "^22.1.0"
-nox = "^2021.6.12"
+nox = "^2023.1"
 types-requests = "^2.25.6"
 
 [tool.poetry.scripts]
