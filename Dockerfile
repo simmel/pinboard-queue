@@ -24,7 +24,9 @@ RUN rm -f /venv/bin/python*
 # Distroless don't currently have version tags
 FROM gcr.io/distroless/python3-debian11:debug-nonroot@sha256:8b97e216ea5fd097457dcca1b5bca9dcdfc1f647162cc255d2f57d4130210a8b
 
-COPY --from=build /venv /venv
+USER 1
+COPY --from=build --chown=nonroot:nonroot /venv /venv
+USER nonroot
 ENV PATH=/venv/bin:$PATH
 ENV PYTHONPATH=/venv/lib/python${PYTHON_VERSION}/site-packages
 
