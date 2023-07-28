@@ -28,7 +28,6 @@ USER 1
 COPY --from=build --chown=nonroot:nonroot /venv /venv
 USER nonroot
 ENV PATH=/venv/bin:$PATH
-ENV PYTHONPATH=/venv/lib/python${PYTHON_VERSION}/site-packages
 
 # Upgrade the venv so we get this containers python3
 # Also, without --without-pip it will try to install pip which will fail.
